@@ -1,13 +1,44 @@
 
 import React, { useState } from 'react';
-import { Volume2, Target, ChevronRight, Check, Play, Settings2, Lock, Sparkles } from 'lucide-react';
+import { Volume2, Target, ChevronRight, Check, Play, Settings2, Lock, Sparkles, MessageCircle } from 'lucide-react';
 
 const VOICES = [
-  { id: 'rachel', name: 'Rachel', style: 'Professional & Calm', gender: 'F', preview: 'Warm, authoritative, and steady.', isLive: true },
-  { id: 'drew', name: 'Drew', style: 'Friendly & Energetic', gender: 'M', preview: 'High energy, great for sales.' },
-  { id: 'clyde', name: 'Clyde', style: 'Corporate & Formal', gender: 'M', preview: 'Precise and polished for B2B.' },
-  { id: 'bella', name: 'Bella', style: 'Empathetic & Soft', gender: 'F', preview: 'Ideal for healthcare.' },
-  { id: 'antoni', name: 'Antoni', style: 'Deep & Commanding', gender: 'M', preview: 'Strong presence, high-end consulting.' },
+  { 
+    id: 'rachel', 
+    name: 'Rachel', 
+    style: 'Professional & Calm', 
+    gender: 'F', 
+    preview: 'Warm, authoritative, and steady.',
+    isInteractive: true
+  },
+  { 
+    id: 'drew', 
+    name: 'Drew', 
+    style: 'Friendly & Energetic', 
+    gender: 'M', 
+    preview: 'High energy, great for sales.'
+  },
+  { 
+    id: 'clyde', 
+    name: 'Clyde', 
+    style: 'Corporate & Formal', 
+    gender: 'M', 
+    preview: 'Precise and polished for B2B.'
+  },
+  { 
+    id: 'bella', 
+    name: 'Bella', 
+    style: 'Empathetic & Soft', 
+    gender: 'F', 
+    preview: 'Ideal for healthcare.'
+  },
+  { 
+    id: 'antoni', 
+    name: 'Antoni', 
+    style: 'Deep & Commanding', 
+    gender: 'M', 
+    preview: 'Strong presence, high-end consulting.'
+  },
 ];
 
 const SECTORS = [
@@ -68,24 +99,18 @@ const AgentBuilder: React.FC = () => {
                     <div className="flex items-center justify-between mb-1.5 md:mb-2">
                       <div className="flex items-center gap-2">
                         <span className="text-xs md:text-sm font-bold text-white">{v.name}</span>
-                        {v.isLive && (
-                          <div className="px-1.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-[7px] md:text-[8px] text-purple-400 font-bold flex items-center gap-1">
-                            <div className="w-1 h-1 rounded-full bg-purple-500 animate-pulse" />
-                            INTERACTIVE
+                        {v.isInteractive && (
+                          <div className="px-2 py-0.5 rounded-full bg-purple-500/20 text-[8px] font-bold text-purple-400 border border-purple-500/30 animate-pulse">
+                            LIVE CHAT
                           </div>
                         )}
                       </div>
                       
-                      {v.id === 'rachel' ? (
-                        <div className="scale-[0.7] md:scale-[0.8] origin-right relative z-20">
-                          {/* @ts-ignore */}
-                          <elevenlabs-convai agent-id="agent_2201kf34bww3ed5vevrn815f4e14"></elevenlabs-convai>
-                        </div>
-                      ) : (
-                        <div className={`p-1 rounded-full ${selectedVoice === v.name ? 'bg-purple-500 text-white' : 'bg-white/10 text-gray-500'}`}>
-                          <Play size={8} md:size={10} fill={selectedVoice === v.name ? 'white' : 'none'} />
-                        </div>
-                      )}
+                      <div className={`p-1.5 md:p-2 rounded-full transition-all ${
+                        selectedVoice === v.name ? 'bg-purple-500 text-white' : 'bg-white/10 text-gray-500'
+                      }`}>
+                        {v.isInteractive ? <MessageCircle size={8} md:size={10} /> : <Play size={8} md:size={10} fill={selectedVoice === v.name ? 'white' : 'none'} />}
+                      </div>
                     </div>
                     <p className="text-[9px] md:text-[11px] text-gray-400">{v.style} • {v.gender}</p>
                     <p className="text-[8px] md:text-[10px] text-gray-500 mt-1 line-clamp-1">{v.preview}</p>

@@ -68,7 +68,11 @@ const App: React.FC = () => {
         <CTA />
       </main>
 
-      {/* Floating global widget removed in favor of targeted embedding in AgentBuilder */}
+      {/* ElevenLabs Conversational AI Global Widget */}
+      <div className="relative z-[100]">
+        {/* @ts-ignore */}
+        <elevenlabs-convai agent-id="agent_2201kf34bww3ed5vevrn815f4e14"></elevenlabs-convai>
+      </div>
 
       <footer className="relative z-10 py-12 border-t border-white/5 bg-[#030303]">
         <div className="container mx-auto px-6 text-center">

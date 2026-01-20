@@ -1,5 +1,7 @@
 {
   "name": "VoxAI - The Intelligent Receptionist",
   "description": "A high-performance landing page for AI call agents, featuring Linear-style aesthetics, precise spacing, and sophisticated motion design.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "microphone"
+  ]
 }

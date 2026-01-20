@@ -20,10 +20,8 @@ const DemoPage: React.FC = () => {
   };
 
   const startVoiceDemo = () => {
-    const widget = document.querySelector('elevenlabs-convai');
-    if (widget) {
-      alert("Opening our AI Voice Interface. Please use the button in the bottom right corner to start.");
-    }
+    // Reverted logic to a native browser alert/demonstration placeholder
+    alert("Voice simulation starting. In a live environment, this would initiate a bidirectional PCM stream with our low-latency inference engine.");
   };
 
   return (
@@ -161,14 +159,8 @@ const DemoPage: React.FC = () => {
           </div>
         </div>
       </main>
-
-      <elevenlabs-convai agent-id="agent_2201kf34bww3ed5vevrn815f4e14"></elevenlabs-convai>
     </div>
   );
 };
-
-const Volume2 = ({ size, className }: { size: number, className?: string }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" /><path d="M19.07 4.93a10 10 0 0 1 0 14.14" /><path d="M15.54 8.46a5 5 0 0 1 0 7.07" /></svg>
-);
 
 export default DemoPage;
